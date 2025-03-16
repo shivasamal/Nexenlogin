@@ -1,0 +1,89 @@
+/* Signup.css */
+
+/* Full screen and center content */
+.signup-container {
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    align-items: center;    /* Vertical center */
+    height: 100vh;          /* Full viewport height */
+    width: 100vw;           /* Full viewport width */
+    background-color: #f5f5f5; /* Optional, can be removed if not needed */
+    box-sizing: border-box;
+    padding: 20px;          /* Prevents content from sticking to edges on small screens */
+  }
+  
+  /* Content: image + form */
+  .signup-content {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Space between image and form */
+  }
+  
+  /* Image styling */
+  .signup-image img {
+    width: 350px; /* Control image size */
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px; /* Optional for smooth corners */
+  }
+  
+  /* Form styling */
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 300px;
+    max-width: 400px;
+  }
+  
+  /* Heading */
+  .signup-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+  }
+  
+  /* Inputs */
+  .signup-form .form-control {
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Button */
+  .signup-form .btn-primary {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  /* Button hover */
+  .signup-form .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* ✅ Responsive (Mobile Friendly) */
+  @media (max-width: 768px) {
+    .signup-content {
+      flex-direction: column; /* Stack image and form vertically on small screens */
+      gap: 20px;
+    }
+  
+    .signup-image img {
+      width: 250px; /* Smaller image on mobile */
+    }
+  
+    .signup-form {
+      width: 100%; /* Take available width */
+      max-width: 350px;
+    }
+  }
+  

@@ -1,0 +1,98 @@
+/* === Full Page Container with Background Image === */
+.login-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: url('/background.webp') no-repeat center center;
+  background-size: cover; /* Ensures full cover */
+  background-attachment: fixed; /* Optional: fixed background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* === Logo Positioning (Top Left Fixed) === */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* === Login Card Fixed to Right === */
+.login-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  box-sizing: border-box;
+  z-index: 20;
+}
+
+/* Input and Button styles remain same */
+
+  
+  /* === Input Field Styling === */
+  .form-control {
+    border-radius: 6px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    outline: none;
+  }
+  
+  /* === Button Styling === */
+  .btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    padding: 10px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    color: white;
+    width: 100%;
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #00408d);
+  }
+  
+  /* === Responsive Fix for Mobile === */
+  @media (max-width: 768px) {
+    .login-card {
+      position: static; /* Remove fixed position on mobile */
+      transform: none;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+  
+    .login-container {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+  
+    .logo img {
+      height: 50px;
+    }
+  }
+  

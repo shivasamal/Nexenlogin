@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./loginpage.css";
+import "./admin-login.css"; // Ensure this CSS exists
 
-const LoginPage = () => {
+const AdminLoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,20 +18,20 @@ const LoginPage = () => {
       });
 
       const data = await response.json();
-      console.log("Login Response Data:", data); // Debug log
+      console.log("Admin Login Response Data:", data);
 
       if (response.ok && data.user) {
-        // ✅ Save user data to localStorage
-        localStorage.setItem("user", JSON.stringify(data.user));
-        alert("Login successful!");
+        // ✅ Save data first, then redirect
+        localStorage.setItem("adminAuthToken", data.token);
+        localStorage.setItem("admin", JSON.stringify(data.user));
 
-        // ✅ Redirect to dashboard
-        navigate("/dash");
+        alert("Admin Login successful!");
+        navigate("dashboard"); // Corrected route path
       } else {
         alert(data.message || "Login failed. Please check your credentials.");
       }
     } catch (err) {
-      console.error("Login error", err);
+      console.error("Admin Login error", err);
       alert("An error occurred during login. Please try again.");
     }
   };
@@ -39,11 +39,11 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="logo">
-        <img src="/logo1.png" alt="Logo" />
+        <img src="/admin-logo.png" alt="Admin Logo" />
       </div>
 
       <div className="login-card">
-        <h3 className="text-center mb-4">Login</h3>
+        <h3 className="text-center mb-4">Admin Login</h3>
         <form onSubmit={handleLogin}>
           <input
             type="email"
@@ -63,13 +63,9 @@ const LoginPage = () => {
           />
           <button type="submit" className="btn btn-primary">Login</button>
         </form>
-        <div className="text-center mt-3">
-          <a href="#" className="d-block mb-2">Forgot Password?</a>
-          <span>Don't have an account? <Link to="/signup">Sign Up</Link></span>
-        </div>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default AdminLoginPage;

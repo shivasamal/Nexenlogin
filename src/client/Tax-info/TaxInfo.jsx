@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, LogOut, Upload, Download, FileText, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import "./dashboard.css";
-
+import "../client-dashboard/dashboard.css"
 export default function Dashboard() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [user, setUser] = useState(null);
@@ -118,25 +117,25 @@ export default function Dashboard() {
         <nav className="sidebar-nav">
           <ul>
             <li>
-              <Link to="/download-form">
+              <Link to="/client/tax-info">
                 <Download size={18} />
                 <span>Download Tax Information Form</span>
               </Link>
             </li>
             <li>
-              <Link to="/upload-docs">
+              <Link to="/client/upload-docs">
                 <Upload size={18} />
                 <span>Upload Documents</span>
               </Link>
             </li>
             <li>
-              <Link to="/download-draft">
+              <Link to="/client/tax-return-final">
                 <FileText size={18} />
                 <span>Download Tax Return Draft Copy</span>
               </Link>
             </li>
             <li>
-              <Link to="/download-final">
+              <Link to="/client/tax-return-draft">
                 <FileText size={18} />
                 <span>Download Tax Return Final Copy</span>
               </Link>

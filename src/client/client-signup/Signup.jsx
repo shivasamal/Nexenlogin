@@ -43,13 +43,14 @@ const Signup = () => {
       const data = await response.json();
 
       if (response.ok) {
-        alert("Signup successful! Please login.");
-        navigate("/"); // Redirect to login
+        alert("Signup successful! Redirecting to login...");
+        navigate("/client/login"); // Redirecting to login page after signup
       } else {
         alert(data.message); // Show error from backend
       }
     } catch (error) {
       console.error("Signup error:", error);
+      alert("Something went wrong. Please try again.");
     }
   };
 
@@ -57,7 +58,7 @@ const Signup = () => {
     <div className="signup-container">
       <div className="signup-content">
         <div className="signup-image">
-          <img src="Signup.webp" alt="Signup Illustration" />
+          <img src="/Signup.webp" alt="Signup Illustration" />
         </div>
         <div className="signup-form">
           <h2>Sign Up</h2>
@@ -78,3 +79,4 @@ const Signup = () => {
 };
 
 export default Signup;
+

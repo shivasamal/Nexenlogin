@@ -38,9 +38,9 @@ const AdminLoginPage = () => {
 
   return (
     <div className="login-container">
-      <div className="logo">
-        <img src="/admin-logo.png" alt="Admin Logo" />
-      </div>
+  <div className="logo-container">
+    <img src="/logo1.png" alt="Logo" />
+  </div>
 
       <div className="login-card">
         <h3 className="text-center mb-4">Admin Login</h3>

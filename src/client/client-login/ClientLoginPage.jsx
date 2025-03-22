@@ -113,9 +113,11 @@ const ClientLoginPage = () => {
 
   return (
     <div className="login-container">
-      <div className="logo">
-        <img src="/logo1.png" alt="Logo" />
-      </div>
+  <div className="logo-container">
+    <img src="/logo1.png" alt="Logo" />
+  </div>
+
+
 
       <div className="login-card">
         <h3 className="text-center mb-4">Login</h3>
@@ -140,7 +142,7 @@ const ClientLoginPage = () => {
         </form>
         <div className="text-center mt-3">
           <a href="#" className="d-block mb-2">Forgot Password?</a>
-          <span>Don't have an account? <Link to="/signup">Sign Up</Link></span>
+          <span>Don't have an account? <Link to="/client/signup">Sign Up</Link></span>
         </div>
       </div>
     </div>

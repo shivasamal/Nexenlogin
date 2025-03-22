@@ -6,8 +6,7 @@
   import { useState, useEffect } from "react";
   import { Menu, LogOut, Upload, Download, FileText, Lock } from "lucide-react";
   import { useNavigate } from "react-router-dom";
-  import "./dashboard.css";
-
+  import "../client-dashboard/dashboard.css";
   export default function TrFinal() {
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
     const [user, setUser] = useState(null);
@@ -94,61 +93,61 @@
       <div className="dashboard-container">
         {/* Sidebar */}
         <aside className={`sidebar ${isSidebarCollapsed ? "collapsed" : ""}`}>
-          <div className="sidebar-header">
-            <h1 className="sidebar-title">{user?.firstName || "User"}</h1>
-            <button className="sidebar-toggle" onClick={toggleSidebar}>
-              <Menu size={24} />
-            </button>
-          </div>
+        <div className="sidebar-header">
+          <h1 className="sidebar-title">{user?.firstName || "User"}</h1>
+          <button className="sidebar-toggle" onClick={toggleSidebar}>
+            <Menu size={24} />
+          </button>
+        </div>
 
-          <nav className="sidebar-nav">
-            <ul>
-              <li>
-                <Link to="/download-form">
-                  <Download size={18} />
-                  <span>Download Tax Information Form</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/upload-docs">
-                  <Upload size={18} />
-                  <span>Upload Documents</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/download-draft">
-                  <FileText size={18} />
-                  <span>Download Tax Return Draft Copy</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/download-final">
-                  <FileText size={18} />
-                  <span>Download Tax Return Final Copy</span>
-                </Link>
-              </li>
-              <li className="separator"></li>
-              <li>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setShowChangePassword(true);
-                  }}
-                >
-                  <Lock size={18} />
-                  <span>Change Password</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" onClick={handleLogout}>
-                  <LogOut size={18} />
-                  <span>Logout</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </aside>
+        <nav className="sidebar-nav">
+          <ul>
+            <li>
+              <Link to="/client/tax-info">
+                <Download size={18} />
+                <span>Download Tax Information Form</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/client/upload-docs">
+                <Upload size={18} />
+                <span>Upload Documents</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/client/tax-return-final">
+                <FileText size={18} />
+                <span>Download Tax Return Draft Copy</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/client/tax-return-draft">
+                <FileText size={18} />
+                <span>Download Tax Return Final Copy</span>
+              </Link>
+            </li>
+            <li className="separator"></li>
+            <li>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowChangePassword(true);
+                }}
+              >
+                <Lock size={18} />
+                <span>Change Password</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" onClick={handleLogout}>
+                <LogOut size={18} />
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
         {/* Main Content */}
         <main className="main-content">

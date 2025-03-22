@@ -20,7 +20,7 @@ const ClientRoutingModule = () => {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="signup" element={<Signup />} />
         <Route path="tax-info" element={<TaxInfo />} />
-        <Route path="upload-doc" element={<UploadDoc />} />
+        <Route path="upload-docs" element={<UploadDoc />} />
         <Route path="tax-return-final" element={<TrFinal />} />
         <Route path="tax-return-draft" element={<Trdraft />} />
 

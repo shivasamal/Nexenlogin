@@ -1,3 +1,4 @@
+
 /* Base Styles */
 * {
     margin: 0;
@@ -281,42 +282,44 @@
 
   /* Adjust stats container to make cards side by side */
 /* Adjust stats container to make cards side by side without extra space */
+/* Adjust stats container to make cards side by side */
 .stats-container {
-    display: flex; /* Horizontal alignment */
-    flex-wrap: wrap; /* Wrap when needed */
-    gap: 1.5rem; /* Consistent gap */
-    padding: 1.5rem;
-    justify-content: flex-start; /* Align left, avoid space-between */
-    box-sizing: border-box; /* Prevent padding from causing overflow */
+  display: flex; /* Horizontal alignment */
+  flex-wrap: nowrap; /* Ensure all cards stay in a single row */
+  gap: 1.5rem; /* Consistent gap */
+  padding: 1.5rem;
+  justify-content: space-between; /* Ensure even spacing */
+  overflow-x: auto; /* Allows horizontal scrolling if necessary */
+  box-sizing: border-box; /* Prevents padding from causing overflow */
+}
+
+/* Each stat card takes equal space but respects min width */
+.stat-card {
+  flex: 1; /* Distribute equally among four cards */
+  min-width: 289px; /* Prevent cards from being too small */
+  max-width: 25%; /* Ensures 4 cards fit in a row */
+  box-sizing: border-box;
+}
+
+/* Tablet responsive: 2 cards in a row */
+@media (max-width: 1024px) {
+  .stats-container {
+      flex-wrap: wrap; /* Allow wrapping for smaller screens */
   }
-  
-  /* Each stat card takes equal space but respects min width */
   .stat-card {
-    flex: 1 1 calc(25% - 1.125rem); /* 4 cards in a row */
-    min-width: 288px; /* Prevent cards from being too small */
-    box-sizing: border-box;
-  }
-  
-  /* Prevent stat cards from growing beyond container width */
-  .stats-container > .stat-card {
-    max-width: calc(25% - 1.125rem); /* Adjust max-width same as flex basis */
-  }
-  
-  /* Tablet responsive: 2 cards in a row */
-  @media (max-width: 1024px) {
-    .stat-card {
       flex: 1 1 calc(50% - 0.75rem); /* 2 cards per row */
       max-width: calc(50% - 0.75rem);
-    }
   }
-  
-  /* Mobile responsive: Stack vertically */
-  @media (max-width: 600px) {
-    .stat-card {
+}
+
+/* Mobile responsive: Stack vertically */
+@media (max-width: 600px) {
+  .stat-card {
       flex: 1 1 100%; /* Full width */
       max-width: 100%;
-    }
   }
+}
+
   
 
 
@@ -381,4 +384,3 @@
   background-color: #ccc;
   color: black;
 }
-
